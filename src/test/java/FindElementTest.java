@@ -28,6 +28,7 @@ public class FindElementTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
+
     @AfterMethod(enabled = false)
     public void tearDown() {
         driver.quit();
