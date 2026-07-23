@@ -60,6 +60,8 @@ public class FirstSeleniumProject {
         System.out.println(element9.getAttribute("class"));
         WebElement element10 = driver.findElement(By.className("master-wrapper-content"));
         System.out.println(element10.getAttribute("class"));
+        String title = driver.getTitle();
+        System.out.println(title);
 
 
     }

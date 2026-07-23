@@ -28,7 +28,7 @@ public class FindElementTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
-    @AfterMethod(enabled = false)
+    @AfterMethod(enabled = true)
     public void tearDown() {
         driver.quit();
     }
@@ -49,6 +49,13 @@ public class FindElementTest {
     public void findElement() {
         WebElement city = driver.findElement(By.id("city"));
         System.out.println(city.getAttribute("id"));
+    }
+    @Test
+    public  void findElementByClassName() {
+        WebElement telephone = driver.findElement(By.className("telephone"));
+        System.out.println(telephone.getText());
+        WebElement description = driver.findElement(By.className("description"));
+        System.out.println(description.getText());
     }
 }
 
