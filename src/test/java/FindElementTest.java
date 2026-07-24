@@ -57,5 +57,47 @@ public class FindElementTest {
         WebElement description = driver.findElement(By.className("description"));
         System.out.println(description.getText());
     }
-}
+    @Test
+    public void findElementByLinkText() {
+        WebElement LinkText = driver.findElement(By.linkText("Let car work"));
+        System.out.println(LinkText.getText());
+    }
+    @Test
+    public void findElementByPartialLinkText() {
+        WebElement LinkText = driver.findElement(By.partialLinkText(" car work"));
+        System.out.println(LinkText.getText());
+
+    }
+    @Test
+    public void findElementByCssSelector() {
+        WebElement CssSelector = driver.findElement(By.cssSelector("h1"));
+        System.out.println(CssSelector.getText());
+        driver.findElement(By.cssSelector("#city"));//ID
+        driver.findElement(By.cssSelector(".telephone"));//.
+        WebElement element = driver.findElement(By.cssSelector("[href='/search']"));
+        System.out.println(element.getText());
+        driver.findElement(By.cssSelector("[for='city']"));
+        //contains -> *
+        driver.findElement(By.cssSelector("[href*='car']"));
+        //start -> ^
+        driver.findElement(By.cssSelector("[href^='/terms']"));
+
+        List<WebElement> footerElements = driver.findElements(By.cssSelector("[class^='footer']"));
+        System.out.println("Footer elements: " + footerElements.size());
+        for (WebElement footer: footerElements){
+            System.out.println("Footer element: " + footer.getTagName() +
+                    " | class: " + footer.getAttribute("class"));
+        }
+
+        driver.findElement(By.cssSelector("a.navigation-link[href='/search']"));
+
+        //one step down
+        driver.findElement(By.cssSelector(".logo>img"));
+        WebElement element1 = driver.findElement(By.cssSelector(".feedback-card:nth-child(5)"));
+        System.out.println(element1.getText());
+
+
+
+    }
+  }
 
