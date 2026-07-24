@@ -44,7 +44,6 @@ public class HWCssSelector {
 
 
 
-
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement element5 = wait.until(
                 ExpectedConditions.presenceOfElementLocated(By.cssSelector("input[value='Search']")));
