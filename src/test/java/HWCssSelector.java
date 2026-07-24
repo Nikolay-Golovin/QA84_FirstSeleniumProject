@@ -37,7 +37,6 @@ public class HWCssSelector {
         System.out.println(element3.getAttribute("title"));
         driver.findElement(By.cssSelector("div.header-links-wrapper"));//Tag+class
         driver.findElement(By.cssSelector("div#flyout-cart.flyout-cart"));//Tag+Id+class
-        driver.findElement(By.cssSelector("div#flyout-cart.flyout-cart"));//Tag+Id+class
         WebElement element4 = driver.findElement(By.cssSelector("img[alt='Tricentis Demo Web Shop']"));//Tag+Attribut
         System.out.println(element4.getAttribute("alt"));
         driver.findElement(By.cssSelector("form[action='/search'][onsubmit='return check_small_search_form()'][novalidate='novalidate']"));//Tag+Attribut+Attribut+
