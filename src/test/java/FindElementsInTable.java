@@ -29,8 +29,8 @@ public class FindElementsInTable {
     @Test
     public void findCssSelectorInTable() {
         // get numbers of row
-        List<WebElement> elements = driver.findElements(By.cssSelector("tr"));
-        System.out.println(elements.size());
+//        List<WebElement> elements = driver.findElements(By.cssSelector("tr"));
+//        System.out.println(elements.size());
 
 //        for (int i = 0; i < elements.size(); i++) {
 //            System.out.println(elements.get(i).getText());
@@ -41,13 +41,18 @@ public class FindElementsInTable {
 //        }
 
         // 1. Создаем объект ожидания (ждём максимум 10 секунд)
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        WebElement DE = wait.until(
+//                ExpectedConditions.presenceOfElementLocated(By.cssSelector("#customers tr:nth-child(2)"))
+//        );
+//        System.out.println(DE.getText());
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement DE = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#customers tr:nth-child(2)"))
+        List<WebElement> elements = wait.until(
+                ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("#customers tr"))
         );
-        System.out.println(DE.getText());
-
-
+        for (WebElement element : elements) {
+            System.out.println(element.getAttribute("textContent").trim());
+        }
 //        WebElement DE = driver.findElement(By.cssSelector("#customers tr:nth-child(2)"));
 //        System.out.println(DE.getText());
 
