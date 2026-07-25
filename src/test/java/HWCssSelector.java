@@ -18,7 +18,8 @@ public class HWCssSelector {
     driver = new ChromeDriver();
       driver.get("https://demowebshop.tricentis.com");
       driver.manage().window().maximize();
-    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+//    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
   }
   @AfterMethod(enabled = true)
@@ -31,8 +32,8 @@ public class HWCssSelector {
     public void HWCssSelectorTest() {
         List<WebElement> elements1 = driver.findElements(By.cssSelector(".mob-top-menu"));// findClass
         System.out.println(elements1.size());
-        WebElement element2 = driver.findElement(By.cssSelector("li:nth-child(1)"));// Tag(li)+child1
-        System.out.println(element2.getText());
+//        WebElement element2 = driver.findElement(By.cssSelector("li:nth-child(1)"));// Tag(li)+child1
+//        System.out.println(element2.getText());
         WebElement element3 = driver.findElement(By.cssSelector("#dialog-notifications-error"));// findID +#
         System.out.println(element3.getAttribute("title"));
         driver.findElement(By.cssSelector("div.header-links-wrapper"));//Tag+class
@@ -42,9 +43,12 @@ public class HWCssSelector {
         driver.findElement(By.cssSelector("form[action='/search'][onsubmit='return check_small_search_form()'][novalidate='novalidate']"));//Tag+Attribut+Attribut+
         driver.findElement(By.cssSelector("input[value='Search']"));//Tag+Attribut
 
-
-
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        WebElement element2 = wait.until(
+                ExpectedConditions.presenceOfElementLocated(By.cssSelector("li:nth-child(1)")));// Tag(li)+child1
+        System.out.println(element2.getText());
+
         WebElement element5 = wait.until(
                 ExpectedConditions.presenceOfElementLocated(By.cssSelector("input[value='Search']")));
         System.out.println(element5.getAttribute("value"));
