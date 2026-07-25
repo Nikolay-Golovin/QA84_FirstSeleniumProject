@@ -48,7 +48,7 @@ public class FindElementsInTable {
 //        System.out.println(DE.getText());
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         List<WebElement> elements = wait.until(
-                ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("#customers tr"))
+                ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("#customers tr"))
         );
         for (WebElement element : elements) {
             System.out.println(element.getText().trim());
