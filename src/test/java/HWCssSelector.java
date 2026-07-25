@@ -53,6 +53,14 @@ public class HWCssSelector {
                 ExpectedConditions.presenceOfElementLocated(By.cssSelector("input[value='Search']")));
         System.out.println(element5.getAttribute("value"));
 
+        List<WebElement> navElements = driver.findElements(By.cssSelector("div[class$='navigation']"));
+        System.out.println(navElements.size());
+        for (WebElement nav: navElements){
+            System.out.println("tag: " + nav.getTagName()+ " | class: "
+                    + nav.getAttribute("class")+
+                    " | text: "+ nav.getText());
+        }
+
 
 
 

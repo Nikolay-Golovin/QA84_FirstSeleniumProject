@@ -51,10 +51,13 @@ public class FindElementsInTable {
                 ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("#customers tr"))
         );
         for (WebElement element : elements) {
-            System.out.println(element.getAttribute("textContent").trim());
+            System.out.println(element.getText().trim());
         }
 //        WebElement DE = driver.findElement(By.cssSelector("#customers tr:nth-child(2)"));
 //        System.out.println(DE.getText());
+
+//        WebElement tr2 = driver.findElement(By.cssSelector("#customers tr td:nth-child(2)"));
+//        System.out.println(tr2.getTagName() + " | " + tr2.getAttribute("textContent"));
 
     }
     }
