@@ -29,16 +29,21 @@ public class FindElementsInTable {
     @Test
     public void findCssSelectorInTable() {
         // get numbers of row
-//        List<WebElement> elements = driver.findElements(By.cssSelector("tr"));
-//        System.out.println(elements.size());
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        List<WebElement> elements =  wait.until(
+                ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("tr"))
+        );
+        System.out.println(elements.size());
 
 //        for (int i = 0; i < elements.size(); i++) {
 //            System.out.println(elements.get(i).getText());
 //
 //        }
-//        for (WebElement element : elements) {
-//            System.out.println(element.getText());
-//        }
+        for (WebElement element : elements) {
+            System.out.println(element.getText());
+        }
 
         // 1. Создаем объект ожидания (ждём максимум 10 секунд)
 //        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -46,13 +51,12 @@ public class FindElementsInTable {
 //                ExpectedConditions.presenceOfElementLocated(By.cssSelector("#customers tr:nth-child(2)"))
 //        );
 //        System.out.println(DE.getText());
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        List<WebElement> elements = wait.until(
-                ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("#customers tr"))
-        );
-        for (WebElement element : elements) {
-            System.out.println(element.getText().trim());
-        }
+//              List<WebElement> elements = wait.until(
+//                ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("#customers tr"))
+//        );
+//        for (WebElement element : elements) {
+//            System.out.println(element.getText().trim());
+//        }
 //        WebElement DE = driver.findElement(By.cssSelector("#customers tr:nth-child(2)"));
 //        System.out.println(DE.getText());
 
