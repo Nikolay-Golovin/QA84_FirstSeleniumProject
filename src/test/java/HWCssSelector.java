@@ -46,11 +46,11 @@ public class HWCssSelector {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         WebElement element2 = wait.until(
-                ExpectedConditions.presenceOfElementLocated(By.cssSelector("li:nth-child(1)")));// Tag(li)+child1
+                ExpectedConditions.visibilityOfElementLocated(By.cssSelector("li:nth-child(1)")));// Tag(li)+child1
         System.out.println(element2.getText());
 
         WebElement element5 = wait.until(
-                ExpectedConditions.presenceOfElementLocated(By.cssSelector("input[value='Search']")));
+                ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[value='Search']")));
         System.out.println(element5.getAttribute("value"));
 
 
