@@ -49,8 +49,7 @@ public class HWCssSelector {
                 ExpectedConditions.visibilityOfElementLocated(By.cssSelector("li:nth-child(1)")));// Tag(li)+child1
         System.out.println(element2.getText());
 
-        WebElement element5 = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[value='Search']")));
+        WebElement element5 =driver.findElement(By.cssSelector("input[value='Search']"));
         System.out.println(element5.getAttribute("value"));
 
 

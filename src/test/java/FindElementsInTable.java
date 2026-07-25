@@ -18,7 +18,7 @@ public class FindElementsInTable {
         driver = new ChromeDriver();
         driver.get("https://www.w3schools.com/css/css_table.asp");
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
     @AfterMethod(enabled = true)
     public void TearDown() {
