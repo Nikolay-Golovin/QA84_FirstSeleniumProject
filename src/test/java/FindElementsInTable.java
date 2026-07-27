@@ -49,7 +49,6 @@ public class FindElementsInTable {
 //        WebElement DE = wait.until(
 //                ExpectedConditions.presenceOfElementLocated(By.cssSelector("#customers tr:nth-child(2)"))
 //        );
-
 //        System.out.println(DE.getText());
 //              List<WebElement> elements = wait.until(
 //                ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("#customers tr"))
