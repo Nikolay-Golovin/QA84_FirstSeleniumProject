@@ -103,5 +103,62 @@ public class FindElementTest {
 
 
     }
+    @Test
+    public void findElementByXPath() {
+        //         //same_tag[@attribute='value']
+//         //tag[2]
+//         //tag[@attr='value1' and @attr2='value2']
+//
+        driver.findElement(By.xpath("//h1"));
+        driver.findElement(By.xpath("//input[@id='city']"));
+        driver.findElement(By.xpath("//a[@class='telephone']"));
+        //driver.findElement(By.cssSelector("[href='/search']"));
+        //driver.findElement(By.cssSelector("[for='city']"));
+        driver.findElement(By.xpath("//a[@href='/search']"));
+        driver.findElement(By.xpath("//*[@for='city']"));
+        //  contains -> *
+        //  driver.findElement(By.cssSelector("[href*='car']"));
+        driver.findElement(By.xpath("//a[contains(@href,'car')]"));
+        //start -> ^
+        // driver.findElement(By.cssSelector("[href^='/terms']"));
+        driver.findElement(By.xpath("//a[starts-with(@href,'/terms')]"));
+//        WebElement text = driver.findElement(By.xpath("//p[contains(text(),'This car exceeded my expectations')]"));
+//        driver.findElement(By.xpath("//a[starts-with(@href,'/terms')]"));
+        WebElement text = driver.findElement(By.xpath("//p[contains(.,'This car exceeded my expectations')]"));
+        System.out.println(text.getText());
+//        //composite css
+//        //tag + class + pare[attr='par']
+//        driver.findElement(By.cssSelector("a.navigation-link[href='/search']"));
+//        driver.findElement(By.xpath("//a[@class='navigation-link' and contains(@href, '/search')]"));
+        //driver.findElement(By.cssSelector("a.navigation-link[href='/search']"));
+        driver.findElement(By.xpath("//a[contains(@class,'navigation-link') and @href='/search']"));
+
+// driver.findElement(By.cssSelector("div.social-networks"));
+        driver.findElement(By.xpath("//div[contains(@class,'social-networks')]"));
+
+        //cssSelector -> div>a         xPath-> div/a one step
+        //cssSelector ->div a          xPath-> div//a one or more steps
+
+//        driver.findElement(By.cssSelector(".logo>img"));
+        driver.findElement(By.xpath("//*[@class='logo']/img"));
+//        driver.findElement(By.cssSelector(".feedback-card .feedback-date"));
+        driver.findElement(By.xpath("//div[@class='feedback-card']//*[@class='feedback-date']"));
+
+    }
+    @Test
+    public void findElementByXpathFamily() {
+        // parent
+        WebElement element = driver.findElement(By.xpath("//h1/parent::*"));
+        WebElement element1 = driver.findElement(By.xpath("//h1/parent::div"));
+        WebElement element2 = driver.findElement(By.xpath("//h1/..")); //!!!!!
+        System.out.println(element.getText()+" "+element1.getText()+" "+element2.getText());
+
+        //ancestor
+        driver.findElement(By.xpath("//h1/ancestor::*"));//html
+        driver.findElement(By.xpath("//h1/ancestor::div"));//two steps above
+        driver.findElement(By.xpath("//h1/ancestor::div[2]"));//two steps above
+
+
+    }
   }
 

@@ -30,20 +30,20 @@ public class FindElementsInTable {
     public void findCssSelectorInTable() {
         // get numbers of row
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-        List<WebElement> elements =  wait.until(
-                ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("tr"))
-        );
-        System.out.println(elements.size());
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//
+//        List<WebElement> elements =  wait.until(
+//                ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("tr"))
+//        );
+//        System.out.println(elements.size());
 
 //        for (int i = 0; i < elements.size(); i++) {
 //            System.out.println(elements.get(i).getText());
 //
 //        }
-        for (WebElement element : elements) {
-            System.out.println(element.getText());
-        }
+//        for (WebElement element : elements) {
+//            System.out.println(element.getText());
+//        }
 
 //        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 //        WebElement DE = wait.until(
@@ -61,6 +61,48 @@ public class FindElementsInTable {
 
 //        WebElement tr2 = driver.findElement(By.cssSelector("#customers tr td:nth-child(2)"));
 //        System.out.println(tr2.getTagName() + " | " + tr2.getAttribute("textContent"));
+
+    }
+
+    @Test
+    public void findXpathInTable() {
+        // get numbers of row
+
+        List<WebElement> rows = driver.findElements(By.xpath("//tr"));
+
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//        List<WebElement> rows =  wait.until(
+//                ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//tr"))
+//        );
+//        System.out.println(rows.size());
+//        for (WebElement element : rows) {
+//            System.out.println(element.getText());
+//        }
+
+//        WebElement germany = driver.findElement(By.cssSelector("#customers tr:nth-child(2)"));
+//        System.out.println(germany.getText());
+//        System.out.println("**************************");
+
+        WebElement germany = driver.findElement(By.xpath("//*[@id='customers']//tr[2]"));
+        System.out.println(germany.getText());
+        System.out.println("**************************");
+
+//        WebElement maria = driver.findElement(By.cssSelector("#customers tr:nth-child(2) td:nth-child(2)"));
+//        System.out.println(maria.getText());
+//        WebElement maria = driver.findElement(By.xpath("//*[@id='customers']//tr[2]//td[2]"));
+//        System.out.println(maria.getText());
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement maria = wait.until(
+                ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='customers']//tr[2]//td[2]"))
+        );
+        System.out.println(maria.getText());
+
+
+
+
+        WebElement last = driver.findElement(By.xpath("//*[@id='customers']//tr[2]//td[last()]"));
+        System.out.println(last.getText());
 
     }
     }
