@@ -45,7 +45,6 @@ public class FindElementsInTable {
             System.out.println(element.getText());
         }
 
-        // 1. Создаем объект ожидания (ждём максимум 10 секунд)
 //        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 //        WebElement DE = wait.until(
 //                ExpectedConditions.presenceOfElementLocated(By.cssSelector("#customers tr:nth-child(2)"))
